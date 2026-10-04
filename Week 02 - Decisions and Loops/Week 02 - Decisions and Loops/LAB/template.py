@@ -2,9 +2,9 @@
 RECORD CHECK  -  my version
 ===========================
 
-Name  :
-Lane  :  AI / Cyber / IT      (delete two)
-Date  :
+Name  :  Yoggith Premnath
+Lane  :  AI    
+Date  :  04/10/2026
 
 Run it:   python template.py
 
@@ -19,23 +19,33 @@ Delete these instructions as you replace them with your code.
 #    - the second is a NUMBER (use float(), not int())
 #    - the third  is a NUMBER (use float(), not int())
 
-label = ""      # replace with an input() call
-value = 0.0     # replace with an input() call, converted with float()
-limit = 0.0     # replace with an input() call, converted with float()
+over_count = 0
+while True:
+    label = input("Dataset name (or quit to stop): ")     
+    if label == "quit":
+        break
+    value = float(input("Rows loaded: "))     
+    limit = float(input("Rows expected: "))    
 
 
 # ================================================================== PROCESS
 # 2. Work out the difference and the percentage.       [Typical and above]
 
-difference = 0.0   # replace with your calculation
-percent = 0.0       # replace with your calculation
+    difference = limit - value
+    percent = (value / limit) * 100
 # 3. Decide a status and store it in a variable called status.
 #
 #    Threshold : if / else        -> "OVER LIMIT" or "OK"
 #    Typical   : if / elif / else -> "OVER LIMIT" (100% or more),
 #                                     "WARNING" (90% or more), otherwise "OK"
 
-status = ""   # replace with your if / else (or if / elif / else)
+    if percent >= 100:
+        status = "OVER LIMIT"
+        over_count += 1
+    elif percent >= 90:
+        status = "WARNING"
+    else:
+        status = "OK"
 
 
 # =================================================================== OUTPUT
@@ -48,14 +58,21 @@ status = ""   # replace with your if / else (or if / elif / else)
 #                Keep count of how many came back OVER LIMIT and print that
 #                once, after the loop ends.
 
-print()
-print("=" * 34)
-print(f"  RECORD CHECK  -  {label}")
-print("=" * 34)
+    print()
+    print("=" * 34)
+    print(f"  RECORD CHECK  -  {label}")
+    print("=" * 34)
 
-# your report lines go here
+    print(f"  Rows loaded    : {value:>10.2f}")
+    print(f"  Rows expected  : {limit:>10.2f}")
+    print(f"  Rows missing   : {difference:>10.2f}")
+    print(f"  Percent loaded : {percent:>10.2f} %")
+    print(f"  Status         : {status:>10}")
 
-print("=" * 34)
+    print("=" * 34)
+    print()
+
+print(f"Records OVER LIMIT: {over_count}")
 
 
 # ==========================================================================
