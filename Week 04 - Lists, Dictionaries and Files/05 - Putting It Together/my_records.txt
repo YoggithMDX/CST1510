@@ -1,0 +1,3 @@
+students,95,120
+grades,87,100
+attendance,110,100
