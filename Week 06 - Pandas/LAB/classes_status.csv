@@ -1,0 +1,7 @@
+class,students,capacity,percent,status
+CST1510,45,50,90.0,WARNING
+CST1440,52,50,104.0,OVER LIMIT
+Maths,30,50,60.0,OK
+Statistics,48,50,96.0,WARNING
+Data_Ethics,20,50,40.0,OK
+AI_Basics,50,50,100.0,OVER LIMIT
